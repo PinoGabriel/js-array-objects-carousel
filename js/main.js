@@ -99,48 +99,14 @@ function BtnDown(my, current, classe) {
     })
 }
 
-function BtnDownReverse(my, current, classe) {
-    btnUp.addEventListener("click", function () {
-
-
-        if (current > 0) {
-            my[current].classList.remove(classe);
-            current -= 1
-            my[current].classList.add(classe)
-        } else {
-            my[current].classList.remove(classe);;   
-            current = my.length -1
-            my[current].classList.add(classe)
-        }
-        
-    })
-}
-
-function BtnUpReverse(my, current, classe) {
-    btnDown.addEventListener("click", function () {
-
-
-        if (current < my.length -1) {
-            my[current].classList.remove(classe);
-            current += 1
-            my[current].classList.add(classe)
-        } else {
-            my[current].classList.remove(classe);;   
-            current = 0
-            my[current].classList.add(classe)
-        }
-        
-    })
-}
-
 
 
 
 BtnUp(myImg, currentImage, "d-block");
 BtnUp(myText, currentText, "d-block");
 BtnDown(myImg, currentImage, "d-block");
-BtnDownReverse(myImgRight, currentImageRight, "imgFilter");
-BtnUpReverse(myImgRight, currentImageRight, "imgFilter");
+BtnDown(myImgRight, currentImageRight, "imgFilter");
+BtnUp(myImgRight, currentImageRight, "imgFilter");
     
     
 
