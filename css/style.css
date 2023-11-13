@@ -20,7 +20,7 @@
 }
 
 
-#container img {
+#container .imgBig {
     width: 100%;
     height: 100%;
     object-position: 50% 30%;
@@ -39,8 +39,8 @@
 #imgPlace .position {
     position: absolute;
     bottom: 5%;
-    left: 20%;
-    right: 3%;
+    left: 10%;
+    right: 23%;
     text-align: right;
     color: white;
     display: none;
@@ -57,7 +57,7 @@
     padding: 5px;
     position: absolute;
     top: 10%;
-    left: 50%;
+    right: 7%;
     transform: translate(-50%, -50%);
     cursor: pointer;
 }
@@ -69,7 +69,32 @@
     padding: 5px;
     position: absolute;
     bottom: 0%;
-    left: 50%;
+    right: 7%;
     transform: translate(-50%, -50%);
     cursor: pointer;
+}
+
+#imgRight {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 20%;
+}
+
+.imgH {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5)
+}
+
+.imgFilter {
+    filter: brightness(1);
+    border: 1px solid white;
+}
+
+.borderImg {
+    border: 1px solid white;
 }

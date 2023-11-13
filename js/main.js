@@ -26,7 +26,9 @@ let btnUp = document.getElementById("su")
 let btnDown = document.getElementById("giu")
 let container = document.getElementById("container")
 let imgPlace = document.getElementById("imgPlace")
+let imgRight = document.getElementById("imgRight")
 let everyImage = ""
+let onlyImage = ""
 
 
 images.forEach((element, index, array) => {
@@ -40,59 +42,105 @@ images.forEach((element, index, array) => {
                     <h2>${element.title}</h2>
                     <p>${element.text}</p>
                     </div>`;
+
+    onlyImage += ` <img src="${element.image}">`
 });
 
 
 imgPlace.innerHTML = everyImage;
+imgRight.innerHTML = onlyImage;
 
 
-let myImg = document.querySelectorAll("#container img")
+let myImg = document.querySelectorAll("#imgPlace img")
 let currentImage = 0
 myImg[currentImage].classList.add("d-block")
+myImg.forEach(img => img.classList.add("imgBig"));
+
+let myImgRight = document.querySelectorAll("#imgRight img")
+let currentImageRight = 0
+myImgRight[currentImageRight].classList.add("imgFilter");
+myImgRight.forEach(img => img.classList.add("imgH"));
 
 let myText = document.querySelectorAll(".position")
 let currentText = 0
 myText[currentText].classList.add("d-block")
 
 
-function BtnUp(my, current) {
+function BtnUp(my, current, classe) {
     btnUp.addEventListener("click", function () {
 
         if (current < my.length -1) {
-            my[current].classList.remove("d-block");
+            my[current].classList.remove(classe);
             current += 1
-            my[current].classList.add("d-block")
+            my[current].classList.add(classe)
         } else {
-            my[current].classList.remove("d-block");;   
+            my[current].classList.remove(classe);;   
             current = 0
-            my[current].classList.add("d-block")
+            my[current].classList.add(classe)
         }
         
     })
 }
 
-function BtnDown(my, current) {
+function BtnDown(my, current, classe) {
     btnDown.addEventListener("click", function () {
 
+
         if (current > 0) {
-            my[current].classList.remove("d-block");
+            my[current].classList.remove(classe);
             current -= 1
-            my[current].classList.add("d-block")
+            my[current].classList.add(classe)
         } else {
-            my[current].classList.remove("d-block");;   
+            my[current].classList.remove(classe);;   
             current = my.length -1
-            my[current].classList.add("d-block")
+            my[current].classList.add(classe)
+        }
+        
+    })
+}
+
+function BtnDownReverse(my, current, classe) {
+    btnUp.addEventListener("click", function () {
+
+
+        if (current > 0) {
+            my[current].classList.remove(classe);
+            current -= 1
+            my[current].classList.add(classe)
+        } else {
+            my[current].classList.remove(classe);;   
+            current = my.length -1
+            my[current].classList.add(classe)
+        }
+        
+    })
+}
+
+function BtnUpReverse(my, current, classe) {
+    btnDown.addEventListener("click", function () {
+
+
+        if (current < my.length -1) {
+            my[current].classList.remove(classe);
+            current += 1
+            my[current].classList.add(classe)
+        } else {
+            my[current].classList.remove(classe);;   
+            current = 0
+            my[current].classList.add(classe)
         }
         
     })
 }
 
 
-BtnUp(myImg, currentImage);
-BtnUp(myText, currentText);
-BtnDown(myImg, currentImage);
-BtnDown(myText, currentText);
 
+
+BtnUp(myImg, currentImage, "d-block");
+BtnUp(myText, currentText, "d-block");
+BtnDown(myImg, currentImage, "d-block");
+BtnDownReverse(myImgRight, currentImageRight, "imgFilter");
+BtnUpReverse(myImgRight, currentImageRight, "imgFilter");
     
     
 
