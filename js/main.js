@@ -47,6 +47,12 @@ onlyImg.forEach((element, index, array) => {
     console.log(everyImage);
 })
 
+onlyText.forEach((element, index, array) => {
+    everyText = `${element}`;
+    imgPlace.innerHTML += everyText;
+    console.log(everyText);
+})
+
 
 let myImg = document.querySelectorAll("#container img")
 let currentImage = 0
