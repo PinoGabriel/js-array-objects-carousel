@@ -36,6 +36,20 @@
     display: none;
 }
 
+#imgPlace .position {
+    position: absolute;
+    bottom: 5%;
+    left: 20%;
+    right: 3%;
+    text-align: right;
+    color: white;
+    display: none;
+}
+
+#imgPlace .d-block {
+    display: block;
+}
+
 .up {
     background-color: lightgray;
     border-radius: 50%;

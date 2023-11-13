@@ -29,50 +29,70 @@ let imgPlace = document.getElementById("imgPlace")
 let everyImage = ""
 
 
-const onlyImg = images.map((img) =>  {
-    return img.image
-})
+images.forEach((element, index, array) => {
 
-const onlyTitle = images.map((title) =>  {
-    return title.title
-})
+    console.log("Title: ", element.title);
+    console.log("Image: ", element.image);
+    console.log("Text: ", element.text);
 
-const onlyText = images.map((title) =>  {
-    return title.text
-})
+    everyImage += ` <img src="${element.image}">
+                    <div class="position">
+                    <h2>${element.title}</h2>
+                    <p>${element.text}</p>
+                    </div>`;
+});
 
-onlyImg.forEach((element, index, array) => {
-    everyImage = `<img src="${element}">`;
-    imgPlace.innerHTML += everyImage;
-    console.log(everyImage);
-})
 
-onlyText.forEach((element, index, array) => {
-    everyText = `${element}`;
-    imgPlace.innerHTML += everyText;
-    console.log(everyText);
-})
+imgPlace.innerHTML = everyImage;
 
 
 let myImg = document.querySelectorAll("#container img")
 let currentImage = 0
 myImg[currentImage].classList.add("d-block")
 
+let myText = document.querySelectorAll(".position")
+let currentText = 0
+myText[currentText].classList.add("d-block")
+
+
+function BtnUp(my, current) {
     btnUp.addEventListener("click", function () {
 
-        if (currentImage < myImg.length -1) {
-            myImg[currentImage].classList.remove("d-block");
-            currentImage += 1
-            myImg[currentImage].classList.add("d-block")
+        if (current < my.length -1) {
+            my[current].classList.remove("d-block");
+            current += 1
+            my[current].classList.add("d-block")
         } else {
-            myImg[currentImage].classList.remove("d-block");;   
-            currentImage = 0
-            myImg[currentImage].classList.add("d-block")
+            my[current].classList.remove("d-block");;   
+            current = 0
+            my[current].classList.add("d-block")
         }
         
     })
+}
+
+function BtnDown(my, current) {
+    btnDown.addEventListener("click", function () {
+
+        if (current > 0) {
+            my[current].classList.remove("d-block");
+            current -= 1
+            my[current].classList.add("d-block")
+        } else {
+            my[current].classList.remove("d-block");;   
+            current = my.length -1
+            my[current].classList.add("d-block")
+        }
+        
+    })
+}
 
 
+BtnUp(myImg, currentImage);
+BtnUp(myText, currentText);
+BtnDown(myImg, currentImage);
+BtnDown(myText, currentText);
 
+    
     
 
