@@ -102,11 +102,12 @@ function BtnDown(my, current, classe) {
 
 
 
-BtnUp(myImg, currentImage, "d-block");
 BtnUp(myText, currentText, "d-block");
+BtnDown(myText, currentText, "d-block");
+BtnUp(myImg, currentImage, "d-block");
 BtnDown(myImg, currentImage, "d-block");
-BtnDown(myImgRight, currentImageRight, "imgFilter");
 BtnUp(myImgRight, currentImageRight, "imgFilter");
+BtnDown(myImgRight, currentImageRight, "imgFilter");
     
     
 
