@@ -60,54 +60,59 @@ let myText = document.querySelectorAll(".position")
 myText[current].classList.add("d-block")
 
 
-function BtnUp(my, current, classe) {
-    btnUp.addEventListener("click", function () {
+    // let current = 2
+    btnDown.addEventListener("click", function () {
         console.log("prima", current);
 
-        if (current < my.length -1) {
-            my[current].classList.remove(classe);
+        if (current < myImg.length -1) {
+            myImg[current].classList.remove("d-block");
+            myText[current].classList.remove("d-block");
+            myImgRight[current].classList.remove("imgFilter");
             current++
-            my[current].classList.add(classe)
+            myImg[current].classList.add("d-block");
+            myText[current].classList.add("d-block");
+            myImgRight[current].classList.add("imgFilter");
         } else {
-            my[current].classList.remove(classe); 
+            myImg[current].classList.remove("d-block");
+            myText[current].classList.remove("d-block");
+            myImgRight[current].classList.remove("imgFilter");
             current = 0
-            my[current].classList.add(classe)
+            myImg[current].classList.add("d-block");
+            myText[current].classList.add("d-block");
+            myImgRight[current].classList.add("imgFilter");
         }
 
         console.log("dopo", current);
         
     })
-}
 
-function BtnDown(my, current, classe) {
-    btnDown.addEventListener("click", function () {
+    
+    // let current = 4
+    btnUp.addEventListener("click", function () {
         console.log("prima", current);
 
 
         if (current > 0) {
-            my[current].classList.remove(classe);
+            myImg[current].classList.remove("d-block");
+            myText[current].classList.remove("d-block");
+            myImgRight[current].classList.remove("imgFilter");
             current--
-            my[current].classList.add(classe)
+            myImg[current].classList.add("d-block");
+            myText[current].classList.add("d-block");
+            myImgRight[current].classList.add("imgFilter");
         } else {
-            my[current].classList.remove(classe);  
-            current = my.length -1
-            my[current].classList.add(classe)
+            myImg[current].classList.remove("d-block");
+            myText[current].classList.remove("d-block");
+            myImgRight[current].classList.remove("imgFilter");
+            current = myImg.length -1
+            myImg[current].classList.add("d-block");
+            myText[current].classList.add("d-block");
+            myImgRight[current].classList.add("imgFilter");
         }
 
         console.log("dopo", current);
         
     })
-}
-
-
-
-
-BtnUp(myText, current, "d-block");
-BtnDown(myText, current, "d-block");
-BtnUp(myImg, current, "d-block");
-BtnDown(myImg, current, "d-block");
-BtnUp(myImgRight, current, "imgFilter");
-BtnDown(myImgRight, current, "imgFilter");
     
     
 
