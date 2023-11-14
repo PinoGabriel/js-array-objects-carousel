@@ -27,17 +27,13 @@ let btnDown = document.getElementById("giu")
 let container = document.getElementById("container")
 let imgPlace = document.getElementById("imgPlace")
 let imgRight = document.getElementById("imgRight")
-let everyImage = ""
+let everyObj = ""
 let onlyImage = ""
 
 
 images.forEach((element, index, array) => {
 
-    console.log("Title: ", element.title);
-    console.log("Image: ", element.image);
-    console.log("Text: ", element.text);
-
-    everyImage += ` <img src="${element.image}">
+    everyObj += ` <img src="${element.image}">
                     <div class="position">
                     <h2>${element.title}</h2>
                     <p>${element.text}</p>
@@ -47,54 +43,58 @@ images.forEach((element, index, array) => {
 });
 
 
-imgPlace.innerHTML = everyImage;
+imgPlace.innerHTML = everyObj;
 imgRight.innerHTML = onlyImage;
 
 
 let myImg = document.querySelectorAll("#imgPlace img")
-let currentImage = 0
-myImg[currentImage].classList.add("d-block")
+let current = 0
+myImg[current].classList.add("d-block")
 myImg.forEach(img => img.classList.add("imgBig"));
 
 let myImgRight = document.querySelectorAll("#imgRight img")
-let currentImageRight = 0
-myImgRight[currentImageRight].classList.add("imgFilter");
+myImgRight[current].classList.add("imgFilter");
 myImgRight.forEach(img => img.classList.add("imgH"));
 
 let myText = document.querySelectorAll(".position")
-let currentText = 0
-myText[currentText].classList.add("d-block")
+myText[current].classList.add("d-block")
 
 
 function BtnUp(my, current, classe) {
     btnUp.addEventListener("click", function () {
+        console.log("prima", current);
 
         if (current < my.length -1) {
             my[current].classList.remove(classe);
-            current += 1
+            current++
             my[current].classList.add(classe)
         } else {
-            my[current].classList.remove(classe);;   
+            my[current].classList.remove(classe); 
             current = 0
             my[current].classList.add(classe)
         }
+
+        console.log("dopo", current);
         
     })
 }
 
 function BtnDown(my, current, classe) {
     btnDown.addEventListener("click", function () {
+        console.log("prima", current);
 
 
         if (current > 0) {
             my[current].classList.remove(classe);
-            current -= 1
+            current--
             my[current].classList.add(classe)
         } else {
-            my[current].classList.remove(classe);;   
+            my[current].classList.remove(classe);  
             current = my.length -1
             my[current].classList.add(classe)
         }
+
+        console.log("dopo", current);
         
     })
 }
@@ -102,12 +102,12 @@ function BtnDown(my, current, classe) {
 
 
 
-BtnUp(myText, currentText, "d-block");
-BtnDown(myText, currentText, "d-block");
-BtnUp(myImg, currentImage, "d-block");
-BtnDown(myImg, currentImage, "d-block");
-BtnUp(myImgRight, currentImageRight, "imgFilter");
-BtnDown(myImgRight, currentImageRight, "imgFilter");
+BtnUp(myText, current, "d-block");
+BtnDown(myText, current, "d-block");
+BtnUp(myImg, current, "d-block");
+BtnDown(myImg, current, "d-block");
+BtnUp(myImgRight, current, "imgFilter");
+BtnDown(myImgRight, current, "imgFilter");
     
     
 
